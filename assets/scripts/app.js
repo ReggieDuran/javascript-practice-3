@@ -25,7 +25,15 @@ function getMaxLifeValues() {
     return parsedValue;
 }
 
-let chosenMaxLife = getMaxLifeValues();
+let chosenMaxLife;
+
+try {
+    chosenMaxLife = getMaxLifeValues();
+} catch (error) {
+    console.log(error);
+    chosenMaxLife = 100;
+}
+
 
 let currentMonsterHealth = chosenMaxLife;
 let currentPlayerHealth = chosenMaxLife;
@@ -202,9 +210,9 @@ function printLogHandler() {
                 console.log(`${key} => ${logEntry[key]}`);
             }
             lastLoggedEntry = i;
+            break;
         }
         i++;
-        break;
     }
 }
 
